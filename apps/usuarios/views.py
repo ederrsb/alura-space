@@ -60,10 +60,6 @@ def cadastro(request):
     return render(request, 'usuarios/cadastro.html', {'form': form})
 
 def logout(request):
-    if not request.user.is_authenticated:
-        messages.error(request, 'Usuário não logado')
-        return redirect('login')
-    
     auth.logout(request)
     messages.success(request, 'Logout efetuado com sucesso!')
     return redirect('login')
